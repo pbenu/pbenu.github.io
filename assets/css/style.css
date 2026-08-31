@@ -1,0 +1,362 @@
+---
+---
+
+/* ===============================================================
+   Palette drawn from high-altitude light: cool pale ground,
+   forest-slate ink, ultramarine as the single accent.
+   =============================================================== */
+
+:root {
+  --paper:        #F1F2EE;
+  --paper-deep:   #E6E9E2;
+  --ink:          #1B201D;
+  --stone:        #616860;
+  --ultramarine:  #26359A;
+  --rule:         #CDD3C9;
+
+  --measure-prose: 36rem;
+  --measure-verse: 30rem;
+  --measure-wide:  52rem;
+
+  --step: 2.75rem;   /* the terrace offset */
+
+  --t-1:  0.78rem;
+  --t0:   1rem;
+  --t1:   1.16rem;
+  --t2:   1.45rem;
+  --t3:   1.9rem;
+  --t4:   3.1rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper:       #16191A;
+    --paper-deep:  #1E2223;
+    --ink:         #E4E7E2;
+    --stone:       #99A199;
+    --ultramarine: #9AA6E8;
+    --rule:        #333937;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  font-size: 19px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Spectral, Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  line-height: 1.68;
+  font-feature-settings: "onum" 1, "kern" 1;
+  text-rendering: optimizeLegibility;
+}
+
+/* --- links ---------------------------------------------------- */
+
+a {
+  color: var(--ultramarine);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--ultramarine) 30%, transparent);
+  padding-bottom: 1px;
+}
+a:hover { border-bottom-color: var(--ultramarine); }
+a:focus-visible {
+  outline: 2px solid var(--ultramarine);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* --- shell ---------------------------------------------------- */
+
+.shell {
+  max-width: var(--measure-wide);
+  margin: 0 auto;
+  padding: 0 1.6rem 6rem;
+}
+
+/* --- masthead ------------------------------------------------- */
+
+.masthead {
+  padding: 5.5rem 0 0;
+}
+
+.masthead__name {
+  font-size: var(--t4);
+  font-weight: 200;
+  line-height: 1.05;
+  letter-spacing: 0.005em;
+  margin: 0;
+}
+.masthead__name a {
+  color: inherit;
+  border-bottom: none;
+}
+.masthead__name a:hover { color: var(--ultramarine); }
+
+.masthead__tagline {
+  color: var(--stone);
+  font-size: var(--t0);
+  font-style: italic;
+  margin: 0.7rem 0 0;
+  max-width: var(--measure-prose);
+}
+
+.masthead--inner {
+  padding: 2.6rem 0 0;
+}
+.masthead--inner .masthead__name {
+  font-size: var(--t1);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+/* --- navigation: no bar, just the genres --------------------- */
+
+.nav {
+  margin: 2.4rem 0 0;
+  padding: 0 0 2.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.6rem;
+  font-size: var(--t0);
+  border-bottom: 1px solid var(--rule);
+}
+.nav a {
+  color: var(--ink);
+  border-bottom: 1px solid transparent;
+}
+.nav a:hover,
+.nav a[aria-current="page"] {
+  color: var(--ultramarine);
+  border-bottom-color: var(--ultramarine);
+}
+
+/* --- terraced genre bands on the home page -------------------- */
+
+.terrace {
+  padding: 3.2rem 0 0;
+}
+.terrace + .terrace {
+  border-top: 1px solid var(--rule);
+  margin-top: 3.2rem;
+}
+.terrace__heading {
+  font-size: var(--t2);
+  font-weight: 300;
+  margin: 0 0 1.4rem;
+  letter-spacing: 0.01em;
+}
+.terrace__heading a { color: inherit; border-bottom: none; }
+.terrace__heading a:hover { color: var(--ultramarine); }
+
+/* Each band steps in a little further, the way the fields do.
+   Collapses flat on narrow screens. */
+@media (min-width: 46rem) {
+  .terrace--2 { padding-left: var(--step); }
+  .terrace--3 { padding-left: calc(var(--step) * 2); }
+}
+
+/* --- listings ------------------------------------------------- */
+
+.listing { list-style: none; margin: 0; padding: 0; }
+
+.listing__item + .listing__item { margin-top: 1.5rem; }
+
+.listing__title {
+  font-size: var(--t1);
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.35;
+}
+.listing__title a { color: var(--ink); border-bottom-color: transparent; }
+.listing__title a:hover {
+  color: var(--ultramarine);
+  border-bottom-color: color-mix(in srgb, var(--ultramarine) 40%, transparent);
+}
+
+.listing__meta {
+  font-size: var(--t-1);
+  color: var(--stone);
+  margin: 0.15rem 0 0;
+  letter-spacing: 0.02em;
+}
+
+.listing__note {
+  font-size: var(--t0);
+  color: var(--stone);
+  margin: 0.3rem 0 0;
+  max-width: var(--measure-prose);
+  font-style: italic;
+}
+
+.listing__empty {
+  color: var(--stone);
+  font-style: italic;
+  margin: 0;
+}
+
+/* --- article: shared -------------------------------------------- */
+
+.piece { padding: 3.2rem 0 0; }
+
+.piece__title {
+  font-size: var(--t3);
+  font-weight: 300;
+  line-height: 1.18;
+  margin: 0;
+  max-width: var(--measure-prose);
+}
+
+.piece__meta {
+  font-size: var(--t-1);
+  color: var(--stone);
+  letter-spacing: 0.02em;
+  margin: 0.8rem 0 0;
+}
+
+.piece__standfirst {
+  font-size: var(--t1);
+  color: var(--stone);
+  font-style: italic;
+  line-height: 1.5;
+  max-width: var(--measure-prose);
+  margin: 1.1rem 0 0;
+}
+
+.piece__body { margin-top: 2.6rem; }
+
+/* --- prose (essays, analysis, pages) --------------------------- */
+
+.prose {
+  max-width: var(--measure-prose);
+}
+.prose p { margin: 0 0 1.25rem; }
+.prose h2 {
+  font-size: var(--t2);
+  font-weight: 400;
+  line-height: 1.3;
+  margin: 2.6rem 0 1rem;
+}
+.prose h3 {
+  font-size: var(--t1);
+  font-weight: 600;
+  margin: 2rem 0 0.6rem;
+}
+.prose blockquote {
+  margin: 1.6rem 0;
+  padding-left: 1.3rem;
+  border-left: 2px solid var(--rule);
+  color: var(--stone);
+}
+.prose blockquote p:last-child { margin-bottom: 0; }
+.prose img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 2rem 0;
+}
+.prose figcaption {
+  font-size: var(--t-1);
+  color: var(--stone);
+  margin-top: -1.4rem;
+}
+.prose hr {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 2.6rem 0;
+  width: 5rem;
+}
+.prose ul, .prose ol { padding-left: 1.3rem; margin: 0 0 1.25rem; }
+.prose li { margin-bottom: 0.4rem; }
+.prose code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.85em;
+  background: var(--paper-deep);
+  padding: 0.1em 0.3em;
+  border-radius: 2px;
+}
+
+/* --- verse ------------------------------------------------------ */
+
+/* Poems keep whatever line breaks and indentation you typed.
+   Narrower measure, more air between lines, never justified. */
+.verse {
+  max-width: var(--measure-verse);
+  line-height: 1.9;
+}
+.verse p {
+  white-space: pre-wrap;
+  margin: 0 0 1.7rem;
+}
+.verse em { font-style: italic; }
+
+.verse--epigraph {
+  font-size: var(--t0);
+  color: var(--stone);
+  font-style: italic;
+  margin-bottom: 2rem;
+  white-space: normal;
+}
+
+/* --- footnotes (kramdown) --------------------------------------- */
+
+.footnotes {
+  margin-top: 3.4rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--rule);
+  font-size: var(--t-1);
+  line-height: 1.6;
+  color: var(--stone);
+  max-width: var(--measure-prose);
+}
+.footnotes ol { padding-left: 1.2rem; }
+.footnotes li { margin-bottom: 0.5rem; }
+sup a { border-bottom: none; }
+
+/* --- abstract block for academic pieces -------------------------- */
+
+.abstract {
+  max-width: var(--measure-prose);
+  background: var(--paper-deep);
+  padding: 1.3rem 1.5rem;
+  margin: 0 0 2.4rem;
+  font-size: var(--t0);
+  line-height: 1.6;
+}
+.abstract p { margin: 0; }
+.abstract p + p { margin-top: 0.8rem; }
+
+/* --- footer ------------------------------------------------------ */
+
+.footer {
+  margin-top: 5rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--rule);
+  font-size: var(--t-1);
+  color: var(--stone);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  justify-content: space-between;
+}
+.footer a { color: var(--stone); }
+.footer a:hover { color: var(--ultramarine); }
+
+/* --- small screens ----------------------------------------------- */
+
+@media (max-width: 46rem) {
+  html { font-size: 17px; }
+  .masthead { padding-top: 3.2rem; }
+  .masthead__name { font-size: 2.2rem; }
+  .shell { padding-bottom: 4rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}

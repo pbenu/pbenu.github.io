@@ -1,0 +1,13 @@
+<header class="masthead {% unless page.url == '/' %}masthead--inner{% endunless %}">
+  <h1 class="masthead__name"><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+  {% if page.url == '/' and site.tagline %}
+    <p class="masthead__tagline">{{ site.tagline }}</p>
+  {% endif %}
+</header>
+
+<nav class="nav">
+  <a href="{{ '/essays/' | relative_url }}"{% if page.url contains '/essays' %} aria-current="page"{% endif %}>Essays</a>
+  <a href="{{ '/poems/' | relative_url }}"{% if page.url contains '/poems' %} aria-current="page"{% endif %}>Poems</a>
+  <a href="{{ '/analysis/' | relative_url }}"{% if page.url contains '/analysis' %} aria-current="page"{% endif %}>Analysis</a>
+  <a href="{{ '/about/' | relative_url }}"{% if page.url contains '/about' %} aria-current="page"{% endif %}>About</a>
+</nav>

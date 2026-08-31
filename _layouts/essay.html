@@ -1,0 +1,15 @@
+---
+layout: default
+---
+<article class="piece">
+  <h1 class="piece__title">{{ page.title }}</h1>
+  {% if page.standfirst %}<p class="piece__standfirst">{{ page.standfirst }}</p>{% endif %}
+  <p class="piece__meta">
+    {% if page.date %}{{ page.date | date: "%B %Y" }}{% endif %}
+    {% if page.place %} &nbsp;&nbsp; {{ page.place }}{% endif %}
+    {% if page.published_in %} &nbsp;&nbsp; First published in {{ page.published_in }}{% endif %}
+  </p>
+  <div class="piece__body prose">
+    {{ content }}
+  </div>
+</article>

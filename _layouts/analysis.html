@@ -1,0 +1,14 @@
+---
+layout: default
+---
+<article class="piece">
+  <h1 class="piece__title">{{ page.title }}</h1>
+  <p class="piece__meta">
+    {% if page.date %}{{ page.date | date: "%B %Y" }}{% endif %}
+    {% if page.published_in %} &nbsp;&nbsp; {{ page.published_in }}{% endif %}
+  </p>
+  <div class="piece__body prose">
+    {% if page.abstract %}<div class="abstract"><p>{{ page.abstract }}</p></div>{% endif %}
+    {{ content }}
+  </div>
+</article>

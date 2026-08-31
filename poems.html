@@ -1,0 +1,23 @@
+---
+layout: default
+title: Poems
+permalink: /poems/
+---
+<section class="piece">
+  <h1 class="piece__title">Poems</h1>
+  <div class="piece__body">
+    {% assign items = site.poems | sort: 'date' | reverse %}
+    {% if items.size > 0 %}
+      <ul class="listing">
+        {% for item in items %}
+          <li class="listing__item">
+            <h2 class="listing__title"><a href="{{ item.url | relative_url }}">{{ item.title }}</a></h2>
+            <p class="listing__meta">{{ item.date | date: "%Y" }}{% if item.published_in %} &nbsp;&nbsp; {{ item.published_in }}{% endif %}</p>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="listing__empty">Nothing here yet.</p>
+    {% endif %}
+  </div>
+</section>

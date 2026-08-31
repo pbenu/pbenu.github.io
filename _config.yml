@@ -1,0 +1,60 @@
+# ---------------------------------------------------------------
+# Edit these four lines. Everything else can stay as it is.
+# ---------------------------------------------------------------
+title: "Your Name"
+tagline: "Essays, poems, and analysis"
+description: "Writing on the Himalayas, climate, place, and memory."
+author: "Your Name"
+
+# baseurl stays empty for a user site (pbenu.github.io).
+# You would only set it if you published at pbenu.github.io/some-repo instead.
+baseurl: ""
+url: "https://pbenu.github.io"
+
+# ---------------------------------------------------------------
+# Below here you shouldn't need to change anything.
+# ---------------------------------------------------------------
+collections:
+  essays:
+    output: true
+    permalink: /essays/:path/
+  poems:
+    output: true
+    permalink: /poems/:path/
+  analysis:
+    output: true
+    permalink: /analysis/:path/
+
+defaults:
+  - scope:
+      path: ""
+      type: essays
+    values:
+      layout: essay
+  - scope:
+      path: ""
+      type: poems
+    values:
+      layout: poem
+  - scope:
+      path: ""
+      type: analysis
+    values:
+      layout: analysis
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  smart_quotes: ["lsquo", "rsquo", "ldquo", "rdquo"]
+  footnote_backlink: "&#8617;"
+  syntax_highlighter: rouge
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor

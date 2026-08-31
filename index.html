@@ -1,0 +1,55 @@
+---
+layout: default
+---
+
+<section class="terrace terrace--1">
+  <h2 class="terrace__heading"><a href="{{ '/essays/' | relative_url }}">Essays</a></h2>
+  {% assign items = site.essays | sort: 'date' | reverse %}
+  {% if items.size > 0 %}
+    <ul class="listing">
+      {% for item in items limit: 4 %}
+        <li class="listing__item">
+          <h3 class="listing__title"><a href="{{ item.url | relative_url }}">{{ item.title }}</a></h3>
+          <p class="listing__meta">{{ item.date | date: "%B %Y" }}{% if item.published_in %} &nbsp;&nbsp; {{ item.published_in }}{% endif %}</p>
+          {% if item.standfirst %}<p class="listing__note">{{ item.standfirst }}</p>{% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="listing__empty">Nothing here yet.</p>
+  {% endif %}
+</section>
+
+<section class="terrace terrace--2">
+  <h2 class="terrace__heading"><a href="{{ '/poems/' | relative_url }}">Poems</a></h2>
+  {% assign items = site.poems | sort: 'date' | reverse %}
+  {% if items.size > 0 %}
+    <ul class="listing">
+      {% for item in items limit: 5 %}
+        <li class="listing__item">
+          <h3 class="listing__title"><a href="{{ item.url | relative_url }}">{{ item.title }}</a></h3>
+          <p class="listing__meta">{{ item.date | date: "%Y" }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="listing__empty">Nothing here yet.</p>
+  {% endif %}
+</section>
+
+<section class="terrace terrace--3">
+  <h2 class="terrace__heading"><a href="{{ '/analysis/' | relative_url }}">Analysis</a></h2>
+  {% assign items = site.analysis | sort: 'date' | reverse %}
+  {% if items.size > 0 %}
+    <ul class="listing">
+      {% for item in items limit: 4 %}
+        <li class="listing__item">
+          <h3 class="listing__title"><a href="{{ item.url | relative_url }}">{{ item.title }}</a></h3>
+          <p class="listing__meta">{{ item.date | date: "%B %Y" }}{% if item.published_in %} &nbsp;&nbsp; {{ item.published_in }}{% endif %}</p>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="listing__empty">Nothing here yet.</p>
+  {% endif %}
+</section>
