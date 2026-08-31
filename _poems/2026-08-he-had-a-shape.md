@@ -4,7 +4,7 @@ date: 2026-08-31
 ---
 
 <p>In his sixties, my father started woodwork
-    at a carpenter’s shed left standing
+    at a carpenter’s shed left behind
     by the carpenter who built our old house.
     He planed laurel planks so smooth
     that the glint of light off them
