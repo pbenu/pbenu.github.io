@@ -2,7 +2,7 @@
 # Edit these four lines. Everything else can stay as it is.
 # ---------------------------------------------------------------
 title: "two stones for a cairn"
-tagline: "Essays, poems, and analysis"
+tagline: "Essays, poems, fiction, and articles"
 description: "Writing on the Himalayas, climate, place, and memory."
 author: "Benu P. Dahal"
 
@@ -24,7 +24,7 @@ collections:
   articles:
     output: true
     permalink: /articles/:path/
-    fiction:
+  fiction:
     output: true
     permalink: /fiction/:path/
 
