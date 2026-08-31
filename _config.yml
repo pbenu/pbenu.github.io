@@ -41,7 +41,7 @@ defaults:
       layout: poem
   - scope:
       path: ""
-      type: analysis
+      type: articles
     values:
       layout: analysis
   - scope:
