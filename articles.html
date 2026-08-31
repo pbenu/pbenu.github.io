@@ -1,12 +1,12 @@
 ---
 layout: default
-title: "Others/papers"
-permalink: /analysis/
+title: "articles"
+permalink: /articles/
 ---
 <section class="piece">
   <h1 class="piece__title">Analysis</h1>
   <div class="piece__body">
-    {% assign items = site.analysis | sort: 'date' | reverse %}
+    {% assign items = site.articles | sort: 'date' | reverse %}
     {% if items.size > 0 %}
       <ul class="listing">
         {% for item in items %}
