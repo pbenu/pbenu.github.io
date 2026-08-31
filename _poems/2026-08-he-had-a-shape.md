@@ -4,9 +4,10 @@ date: 2026-08-31
 ---
 
 <p>In his sixties, my father started woodwork
-    at a carpenter’s shed left standing after our
-    old house was built. He planed laurel planks
-    so smooth that the glint of light off them
+    at a carpenter’s shed left standing
+    by the carpenter who built our old house.
+    He planed laurel planks so smooth
+    that the glint of light off them
     hurt our curious eyes. He wasn’t a carpenter
     but said he had a shape in his mind.
     The only tools he had were a saw, a chisel,
