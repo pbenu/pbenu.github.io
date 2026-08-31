@@ -21,9 +21,12 @@ collections:
   poems:
     output: true
     permalink: /poems/:path/
-  analysis:
+  articles:
     output: true
-    permalink: /analysis/:path/
+    permalink: /articles/:path/
+    fiction:
+    output: true
+    permalink: /fiction/:path/
 
 defaults:
   - scope:
@@ -41,6 +44,12 @@ defaults:
       type: analysis
     values:
       layout: analysis
+  - scope:
+      path: ""
+      type: fiction
+    values:
+    layout: essay
+    
 
 markdown: kramdown
 kramdown:
